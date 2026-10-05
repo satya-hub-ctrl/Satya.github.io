@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eluru Satya Yamini | Aspiring Software Developer</title>
+<meta name="description" content="Portfolio of Eluru Satya Yamini, a B.Tech Computer Science and Engineering student skilled in C, Java, Python, SQL, MongoDB and web technologies.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF7; --ink:#111827; --muted:#5B6474; --line:#DADDE3;
+  --accent:#2F4BFF; --tint:#E9EDFF; --side:#111827; --side-ink:#F3F4F8; --side-muted:#A9B1C4;
+  --serif:"DM Serif Display",Georgia,"Times New Roman",serif;
+  --sans:"DM Sans","Segoe UI",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg:#0E1220; --ink:#ECEFF7; --muted:#A3ACC2; --line:#27304A;
+    --accent:#8FA2FF; --tint:#1B2347; --side:#080B16; --side-ink:#F3F4F8; --side-muted:#98A1BA;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:1rem}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.03rem;line-height:1.7}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+.layout{display:block}
+@media(min-width:960px){.layout{display:grid;grid-template-columns:20rem 1fr}}
+
+/* sidebar */
+aside.side{background:var(--side);color:var(--side-ink);padding:calc(2.2rem + env(safe-area-inset-top,0px)) 1.6rem 2rem}
+@media(min-width:960px){aside.side{position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:3rem 2rem 2rem}}
+.mono{display:grid;place-items:center;width:3.4rem;height:3.4rem;border-radius:50%;background:var(--accent);color:#fff;
+  font-family:var(--serif);font-size:1.3rem;margin-bottom:1.3rem}
+@media (prefers-color-scheme: dark){.mono{color:#0E1220}}
+.side h1{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1.1;margin:0 0 .5rem}
+.side .tag{color:var(--side-muted);margin:0 0 1.6rem;font-size:.97rem}
+.side nav{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+@media(min-width:960px){.side nav{flex-direction:column;gap:.2rem}}
+.side nav a{text-decoration:none;color:var(--side-ink);font-weight:500;padding:.25rem 0;border-bottom:1px solid transparent;width:fit-content}
+.side nav a:hover{border-color:var(--accent);color:#fff}
+.side .links{margin-top:1.8rem;display:grid;gap:.4rem;font-size:.95rem}
+@media(min-width:960px){.side .links{margin-top:auto}}
+.side .links a{color:var(--side-muted);word-break:break-all}
+.side .links a:hover{color:#fff}
+
+/* main */
+main{padding:0 1.25rem}
+.col{max-width:46rem;margin:0 auto}
+@media(min-width:960px){main{padding:0 3rem}}
+.intro{padding:3.2rem 0 2.5rem}
+.intro .kicker{font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase;font-size:.8rem;margin:0 0 .9rem}
+.intro h2{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,5.6vw,3.1rem);line-height:1.12;margin:0 0 1.2rem}
+.intro p{color:var(--muted);margin:0 0 1.5rem;max-width:36rem}
+.cta{display:flex;flex-wrap:wrap;gap:.7rem}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:.75rem 1.3rem;border-radius:999px;border:2px solid var(--ink);transition:background .2s,color .2s}
+.btn.fill{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme: dark){.btn.fill{color:#0E1220}}
+.btn:hover{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+section{padding:2.8rem 0;border-top:1px solid var(--line)}
+.sec-h{display:flex;align-items:baseline;gap:.9rem;margin:0 0 1.6rem}
+.sec-h span{font-weight:700;color:var(--accent);font-size:.9rem}
+.sec-h h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,4.6vw,2.2rem);margin:0}
+
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.6rem}
+.stat{border:1px solid var(--line);border-radius:.9rem;padding:1rem}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:1.7rem;line-height:1.1;color:var(--accent)}
+.stat small{color:var(--muted);font-size:.85rem}
+
+.edu{list-style:none;margin:1.4rem 0 0;padding:0}
+.edu li{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.edu li span{color:var(--muted)}
+
+/* projects as rows */
+.proj{padding:1.8rem 0;border-bottom:1px solid var(--line)}
+.proj:first-of-type{padding-top:0}
+.proj h4{font-family:var(--serif);font-weight:400;font-size:1.55rem;line-height:1.2;margin:0 0 .4rem}
+.proj .stack{color:var(--accent);font-weight:700;font-size:.9rem;margin:0 0 .8rem}
+.proj ul{margin:0 0 1rem;padding-left:1.2rem;color:var(--muted)}
+.proj li{margin-bottom:.4rem}
+.proj a.repo{font-weight:700;color:var(--accent);text-decoration:none;border-bottom:2px solid var(--tint)}
+.proj a.repo:hover{border-color:var(--accent)}
+
+/* skills */
+.sk{margin:0;display:grid;gap:1.1rem}
+.sk div{display:grid;gap:.4rem}
+@media(min-width:640px){.sk div{grid-template-columns:11rem 1fr;gap:1rem}}
+.sk dt{font-weight:700}
+.sk dd{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0;padding:0}
+.chips li{background:var(--tint);color:var(--accent);font-weight:700;font-size:.86rem;padding:.2rem .75rem;border-radius:999px}
+@media (prefers-color-scheme: dark){.chips li{color:#C9D2FF}}
+
+.acts{display:grid;gap:1rem}
+@media(min-width:640px){.acts{grid-template-columns:repeat(3,1fr)}}
+.act{border:1px solid var(--line);border-radius:.9rem;padding:1.1rem 1.2rem}
+.act small{color:var(--accent);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.05em}
+.act b{display:block;margin:.2rem 0 .3rem;font-size:1.05rem}
+.act p{margin:0;color:var(--muted);font-size:.95rem}
+
+.end{padding:3rem 0 calc(4rem + env(safe-area-inset-bottom,0px));border-top:1px solid var(--line)}
+.end h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.8rem,5vw,2.6rem);margin:0 0 .6rem}
+.end p{color:var(--muted);margin:0 0 1rem}
+.end a.mail{font-weight:700;font-size:clamp(1.05rem,4.4vw,1.4rem);color:var(--accent);word-break:break-word}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<aside class="side">
+  <div class="mono" aria-hidden="true">ES</div>
+  <h1>Eluru Satya Yamini</h1>
+  <p class="tag">B.Tech Computer Science and Engineering</p>
+  <nav aria-label="Sections">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#activities">Activities</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="links">
+    <a href="mailto:elurusatya15@gmail.com">elurusatya15@gmail.com</a>
+    <!-- Replace with your real GitHub profile link -->
+    <a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</aside>
+
+<main>
+  <div class="col">
+
+    <div class="intro" id="top">
+      <p class="kicker">Aspiring Software Developer</p>
+      <h2>I build practical software, from resume screening to location-based alerts.</h2>
+      <p>Computer Science and Engineering undergraduate with hands-on experience in C, Java, Python, SQL, MongoDB and web technologies, looking for an entry-level role.</p>
+      <div class="cta">
+        <a class="btn fill" href="#projects">View projects</a>
+        <a class="btn" href="mailto:elurusatya15@gmail.com">Email me</a>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="sec-h"><span>01</span><h3>About</h3></div>
+      <p>I am a Computer Science and Engineering undergraduate with hands-on experience in software development, database systems and problem solving through academic projects and hackathons. I am eager to apply my technical knowledge in a professional environment while continuously learning and improving.</p>
+      <div class="stats">
+        <div class="stat"><b>7.5</b><small>B.Tech CGPA</small></div>
+        <div class="stat"><b>3+</b><small>Hackathons</small></div>
+        <div class="stat"><b>2</b><small>Major projects</small></div>
+      </div>
+      <ul class="edu">
+        <li><strong>B.Tech (CSE), Lendi Institute of Engineering and Technology</strong><span>CGPA 7.5</span></li>
+        <li><strong>Intermediate, Narayana Junior College</strong><span>68.7%</span></li>
+        <li><strong>SSC, Dr. Besant English Medium High School</strong><span>91.85%</span></li>
+      </ul>
+    </section>
+
+    <section id="projects">
+      <div class="sec-h"><span>02</span><h3>Projects</h3></div>
+
+      <article class="proj">
+        <h4>Intelligent Resume Screening System</h4>
+        <p class="stack">Python &middot; Node.js &middot; Express.js &middot; MongoDB</p>
+        <ul>
+          <li>Automates resume analysis to support efficient candidate evaluation.</li>
+          <li>Parses resumes to extract candidate information, qualifications and technical skills.</li>
+          <li>Matches skills to job requirements and ranks candidates.</li>
+          <li>Stores and manages candidate and resume data in a database.</li>
+          <li>Runs a structured workflow of processing, skill analysis, matching, scoring and ranking.</li>
+        </ul>
+        <!-- Replace with the real repo link -->
+        <a class="repo" href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+
+      <article class="proj">
+        <h4>NoSQL: Location-Based User Alert System</h4>
+        <p class="stack">MongoDB &middot; NoSQL &middot; GeoJSON &middot; Node.js</p>
+        <ul>
+          <li>Built a location-based alert system using NoSQL concepts and geospatial data.</li>
+          <li>Stored locations as GeoJSON and used MongoDB geospatial queries for proximity detection.</li>
+          <li>Designed proximity alerts that identify users within a specified geographical area.</li>
+          <li>Applied NoSQL operations and location-based querying for efficient alert management.</li>
+          <li>Designed the system to support notifications for real-world location scenarios.</li>
+        </ul>
+        <!-- Replace with the real repo link -->
+        <a class="repo" href="https://github.com/" target="_blank" rel="noopener">View on GitHub</a>
+      </article>
+    </section>
+
+    <section id="skills">
+      <div class="sec-h"><span>03</span><h3>Skills</h3></div>
+      <dl class="sk">
+        <div><dt>Languages</dt><dd><ul class="chips"><li>C</li><li>Java</li><li>Python</li></ul></dd></div>
+        <div><dt>Web</dt><dd><ul class="chips"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></dd></div>
+        <div><dt>Databases</dt><dd><ul class="chips"><li>SQL</li><li>MongoDB</li><li>NoSQL</li></ul></dd></div>
+        <div><dt>Tools</dt><dd><ul class="chips"><li>Git</li><li>GitHub</li><li>Visual Studio Code</li></ul></dd></div>
+        <div><dt>Core concepts</dt><dd><ul class="chips"><li>Data Structures and Algorithms</li><li>Object-Oriented Programming</li><li>Database Management Systems</li><li>Computer Networks</li><li>Operating Systems</li><li>Software Engineering</li></ul></dd></div>
+        <div><dt>Strengths</dt><dd><ul class="chips"><li>Team collaboration</li><li>Communication</li><li>Problem solving</li><li>Adaptability</li></ul></dd></div>
+      </dl>
+    </section>
+
+    <section id="activities">
+      <div class="sec-h"><span>04</span><h3>Hackathons and certifications</h3></div>
+      <div class="acts">
+        <div class="act"><small>Hackathons</small><b>3+ hackathons</b><p>Collaborative problem solving and software development.</p></div>
+        <div class="act"><small>Teamwork</small><b>Build and present</b><p>Developed technical solutions with teammates and presented project ideas.</p></div>
+        <div class="act"><small>Certifications</small><b>NPTEL</b><p>Completed NPTEL certifications.</p></div>
+      </div>
+    </section>
+
+    <div class="end" id="contact">
+      <h3>Let's connect</h3>
+      <p>Open to entry-level Software Developer roles and internships.</p>
+      <a class="mail" href="mailto:elurusatya15@gmail.com">elurusatya15@gmail.com</a>
+    </div>
+
+  </div>
+</main>
+
+</div>
+</body>
+</html>
